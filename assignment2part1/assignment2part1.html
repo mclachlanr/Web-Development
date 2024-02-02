@@ -133,13 +133,16 @@
                 sizes="(max-width: 500px) 120px, 400px">
         </a>
         <a href="https://developer.mozilla.org/en-US/">
-          <img src="mdn.svg" alt="Web Dev">
+          <img src="mdn.svg" alt="Mozilla Web Dev">
         </a>
         <div class="clearfix"></div>
       </div>
 
       <div class="red-panda">
-        <!-- insert picture element -->
+        <picture>
+          <source media="(max-width: 600px)" srcset="red-panda-portrait-small.jpg">
+          <img src="red-panda-landscape.jpg" alt="Red Panda">
+        </picture>
       </div>
 
     </main>
