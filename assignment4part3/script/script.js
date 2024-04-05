@@ -1,18 +1,20 @@
+// set up canvas
 
-const ctx = canvas.getContext("2d");
 const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
 
-const height = (canvas.height = window.innerHeight);
 const width = (canvas.width = window.innerWidth);
+const height = (canvas.height = window.innerHeight);
 
-function randomRGB() {
-  return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
-}
+
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//classes
+
+function randomRGB() {
+  return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
+}
 
 class Ball {
   constructor(x, y, velX, velY, color, size) {
@@ -72,6 +74,8 @@ const balls = [];
 while (balls.length < 25) {
   const size = random(10, 20);
   const ball = new Ball(
+    // ball position always drawn at least one ball width
+    // away from the edge of the canvas, to avoid drawing errors
     random(0 + size, width - size),
     random(0 + size, height - size),
     random(-7, 7),
@@ -82,8 +86,6 @@ while (balls.length < 25) {
 
   balls.push(ball);
 }
-
-//loop function
 
 function loop() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
